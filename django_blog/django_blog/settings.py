@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-#)s89bg&=!ge!eb_wh+h_8+-*fj9*ay=)gfjf70r@g#@($f!h7
 DEBUG = True
 
 ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com"]
+# I made this specifically for the deployed version.
 
 
 # Application definition
