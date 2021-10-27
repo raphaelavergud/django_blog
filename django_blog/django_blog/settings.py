@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-#)s89bg&=!ge!eb_wh+h_8+-*fj9*ay=)gfjf70r@g#@($f!h7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com"]
+ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com", "127.0.0.1"]
 # I made this specifically for the deployed version.
 
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blog",
+    "markdownify.apps.MarkdownifyConfig",
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,43 @@ STATIC_ROOT = "/home/raphaelavergud/django-blog/django_blog/static"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Markdownify
+
+MARKDOWNIFY = {
+    "default": {
+        "BLEACH": True,
+        "MARKDOWN_EXTENSIONS": [
+            'markdown.extensions.fenced_code',
+        ],
+        "STRIP": False,
+        "WHITELIST_ATTRS": [
+            'href',
+            'src',
+            'alt',
+        ],
+        "WHITELIST_TAGS": [
+            'a',
+            'abbr',
+            'acronym',
+            'b',
+            'blockquote',
+            'code',
+            'em',
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'i',
+            'img',
+            'li',
+            'ol',
+            'p',
+            'pre',
+            'strong',
+            'ul',
+        ]
+    }
+}
