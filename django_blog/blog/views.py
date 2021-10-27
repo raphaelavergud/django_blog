@@ -1,3 +1,4 @@
+import git
 from django.http.response import HttpResponse
 from django.shortcuts import render
 
@@ -22,3 +23,20 @@ def blog_post(request, id=1):
     blog = Blog.objects.get(id=id)
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
+
+
+def update(request):
+    if request.method == "POST":
+        '''
+        pass the path of the diectory where your project will be
+        stored on PythonAnywhere in the git.Repo() as parameter.
+        Here the name of my directory is "raphaelavergud.pythonanywhere.com/"
+        '''
+        repo = git.Repo("raphaelavergud.pythonanywhere.com/")
+        origin = repo.remotes.origin
+
+        origin.pull()
+
+        return HttpResponse("Updated code on PythonAnywhere")
+    else:
+        return HttpResponse("Couldn't update the code on PythonAnywhere")
