@@ -1,6 +1,7 @@
 import git
 from django.http.response import HttpResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Blog
 
@@ -24,7 +25,7 @@ def blog_post(request, id=1):
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
 
-
+@csrf_exempt
 def update(request):
     if request.method == "POST":
         '''
