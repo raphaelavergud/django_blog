@@ -5,3 +5,4 @@ from git import Repo
 # you want to work with
 repo = Repo('/Users/r.vergud/Desktop/code/projects/django_blog/django_blog')
 assert not repo.bare
+
