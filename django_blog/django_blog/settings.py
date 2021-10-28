@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "markdownify.apps.MarkdownifyConfig",
-    "gitpython",
+    "GitPython-3.1.24.dist-info",
 ]
 
 MIDDLEWARE = [
