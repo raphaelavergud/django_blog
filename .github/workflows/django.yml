@@ -41,4 +41,4 @@ jobs:
     - name: Run Tests
       run: |
         cd django_blog
-        python manage.py test
+        python3 manage.py test
