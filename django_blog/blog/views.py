@@ -7,6 +7,7 @@ from .models import Blog
 
 # Create your views here.
 
+
 def home(request):
     blog_posts = Blog.objects.all()
     context = {"blog_posts": blog_posts}
@@ -24,15 +25,16 @@ def blog_post(request, id=1):
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
 
+
 # cross site request forgery protection
 @csrf_exempt
 def update(request):
     if request.method == "POST":
-        '''
+        """
         pass the path of the diectory where your project will be
         stored on PythonAnywhere in the git.Repo() as parameter.
         Here the name of my directory is "django_blog/"
-        '''
+        """
         repo = git.Repo("django_blog/")
         origin = repo.remotes.origin
 

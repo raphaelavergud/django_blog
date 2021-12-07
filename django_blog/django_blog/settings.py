@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+
 # import os
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
 
@@ -138,36 +139,36 @@ MARKDOWNIFY = {
     "default": {
         "BLEACH": True,
         "MARKDOWN_EXTENSIONS": [
-            'markdown.extensions.fenced_code',
+            "markdown.extensions.fenced_code",
         ],
         "STRIP": False,
         "WHITELIST_ATTRS": [
-            'href',
-            'src',
-            'alt',
+            "href",
+            "src",
+            "alt",
         ],
         "WHITELIST_TAGS": [
-            'a',
-            'abbr',
-            'acronym',
-            'b',
-            'blockquote',
-            'code',
-            'em',
-            'h1',
-            'h2',
-            'h3',
-            'h4',
-            'h5',
-            'h6',
-            'i',
-            'img',
-            'li',
-            'ol',
-            'p',
-            'pre',
-            'strong',
-            'ul',
-        ]
+            "a",
+            "abbr",
+            "acronym",
+            "b",
+            "blockquote",
+            "code",
+            "em",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "i",
+            "img",
+            "li",
+            "ol",
+            "p",
+            "pre",
+            "strong",
+            "ul",
+        ],
     }
 }
