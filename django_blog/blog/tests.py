@@ -12,7 +12,10 @@ class SimpleTest(TestCase):
 
     def test_add_blog_post(self):
         self.client.login(username='testuser', password='password')
-        response = self.client.post('/admin/blog/blog/add/', {'title': 'TEST TITLE', 'body': 'SOME BODY', '_save': 'SAVE'})
+        response = self.client.post('/admin/blog/blog/add/',
+                                    {'title': 'TEST TITLE',
+                                    'body': 'SOME BODY',
+                                    '_save': 'SAVE'})
         self.assertEqual(response.status_code, 302)
         response = self.client.get('/')
         self.assertTrue('TEST TITLE' in str(response.content))
