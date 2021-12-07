@@ -1,5 +1,5 @@
 from django.db import models
-
+# from django.contrib.auth.models import AbstractBaseUser, UserManager
 
 class Blog(models.Model):
     title = models.CharField(max_length=150)
@@ -8,3 +8,9 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+# class User(AbstractBaseUser):
+#     objects = UserManager()
+
+#     def create_superuser(self, username, email, password):
+#         return self._create_user(username, email, password)
