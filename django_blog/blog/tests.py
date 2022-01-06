@@ -13,6 +13,9 @@ class SimpleTest(TestCase):
     def tearDown(self):
         self.user.delete()
 
+# testing adding blog posts.
+# working test
+
     def test_add_blog_post(self):
         self.client.login(username="testuser", password="password")
         response = self.client.post(
@@ -22,3 +25,14 @@ class SimpleTest(TestCase):
         self.assertEqual(response.status_code, 302)
         response = self.client.get("/")
         self.assertTrue("TEST TITLE" in str(response.content))
+
+# testing whether deleting the first post works
+# how do i retrieve the test case
+
+    # def test_delete_blog_post(self):
+    #     self.client.login(username="testuser", password="password")
+    #     response = self.client.delete(
+    #         "/admin/blog/blog/1/delete/",
+    #     )
+    #     self.assertEqual(response.status_code, 302)
+    #     response = self.client.get("/admin/blog/blog/4/change/")

@@ -7,7 +7,6 @@ from .models import Blog
 
 # Create your views here.
 
-
 def home(request):
     blog_posts = Blog.objects.all()
     context = {"blog_posts": blog_posts}
@@ -25,10 +24,14 @@ def blog_post(request, id=1):
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
 
+def item(request, item_id):
+    return HttpResponse(f"Looking at {item_id}")
+
 
 # cross site request forgery protection
 @csrf_exempt
 def update(request):
+    # this is for the pythonanywhere webhook from github
     if request.method == "POST":
         """
         pass the path of the diectory where your project will be
