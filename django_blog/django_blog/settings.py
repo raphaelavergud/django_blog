@@ -45,8 +45,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "markdownify.apps.MarkdownifyConfig",
+    "crispy_forms",
     # "gitpython.apps.config",
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

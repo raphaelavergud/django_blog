@@ -24,5 +24,6 @@ urlpatterns = [
     path("blog/<int:id>/", views.blog_post, name="blog_post"),
     path("admin/", admin.site.urls),
     path("update_server/", views.update, name="update"),
-    path("item/<item_id>", views.item)
+    path("item/<item_id>", views.item),
+    path("register", views.register_request, name="register")
 ]
