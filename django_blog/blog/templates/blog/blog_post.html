@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "blog/menu.html" %}
+{% block content %}
+
     <head>
         <meta charset="UTF-8">
         <title>{{ blog.title }}</title>
@@ -13,4 +14,5 @@
         <p><a href="/">Home</a></p>
 
     </body>
-</html>
+
+{% endblock content %}

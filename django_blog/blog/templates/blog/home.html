@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "blog/menu.html" %}
+{% block content %}
+
     <head>
         <meta charset="UTF-8">
         <title>BlogBlog</title>
@@ -9,4 +10,6 @@
         <p><a href="/blog/{{ blog.id }}/"> {{ blog.title }} </a></p>
         {% endfor %}
     </body>
-</html>
+
+
+{% endblock content %}
