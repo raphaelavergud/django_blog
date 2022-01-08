@@ -25,5 +25,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("update_server/", views.update, name="update"),
     path("item/<item_id>", views.item),
-    path("register", views.register_request, name="register")
+    path("register", views.register_request, name="register"),
+    path("login", views.login_request, name="login")
 ]
