@@ -2,7 +2,7 @@ import git
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -60,6 +60,11 @@ def login_request(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request, template_name="blog/login.html", context={"login_form":form})
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.")
+	return redirect("/")
 
 # cross site request forgery protection
 @csrf_exempt

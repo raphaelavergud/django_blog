@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends "blog/structure.html" %}
+
+{% block content %}
+
     <head>
         <meta charset="UTF-8">
         <title>{{ blog.title }}</title>
@@ -10,7 +12,6 @@
         <p>{{ blog.date }}</p>
         <p>{{ blog.body|markdownify }}</p>
 
-        <p><a href="/">Home</a></p>
-
     </body>
-</html>
+
+{% endblock content %}
