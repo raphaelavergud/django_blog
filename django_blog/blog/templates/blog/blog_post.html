@@ -1,11 +1,10 @@
 {% extends "blog/structure.html" %}
 
-{% block content %}
-
     <head>
         <meta charset="UTF-8">
-        <title>{{ blog.title }}</title>
+        {% block pagetitle %}{{ blog.title }}{% endblock %}
     </head>
+{% block content %}
     <body>
         {% load markdownify %}
         <h1>{{ blog.title }}</h1>
