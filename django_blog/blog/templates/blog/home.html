@@ -8,6 +8,14 @@
         <p><a href="/blog/{{ blog.id }}/"> {{ blog.title }} </a></p>
         {% endfor %}
 
+        {% if user.is_authenticated %}
+        <br>
+        <div class="special">
+            Because you registered and logged in, here is my favourite quote as a thank you:<br><br>
+            Time flies like an arrow, <br>fruit flies like a banana.
+        </div>
+
+        {% endif %}
 
 
 {% endblock content %}
