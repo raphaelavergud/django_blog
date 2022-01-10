@@ -66,7 +66,7 @@ def logout_request(request):
 	messages.info(request, "You have successfully logged out.")
 	return redirect("/")
 
-# cross site request forgery protection
+# cross site request forgery protection exemption to allow this
 @csrf_exempt
 def update(request):
     # this is for the pythonanywhere webhook from github
