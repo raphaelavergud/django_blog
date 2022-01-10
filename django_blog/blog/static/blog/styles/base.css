@@ -1,55 +1,80 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&display=swap");
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  background-color: #ffc1e3;
-  color: #d385b0;
+    font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+    background-color: #F1B684;
+    color: #FA7D75;
 }
+
+p {
+    font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+    padding: 8px;
+    background-color: #B0FA75;
+    color: #FA7D75;
+}
+
+div {
+    font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+    padding: 8px;
+    color: #ff7385;
+    text-shadow: 1px 1px #cc5c6a;
+}
+
+a {
+    color: inherit;
+    font-style: italic;
+}
+
 
 h1,
 h2,
 h3 {
-  font-family: "Roboto Slab", sans-serif;
-  color: #222224;
+    font-family: "IBM Plex Mono", monospace;
+    color: #F184BF;
+    background-color: #F5CBA8;
+    text-shadow: 2px 2px #ec56a7;
 }
 
 button,
 .btn {
-  cursor: pointer;
-  font: inherit;
-  padding: 0.5rem 1.5rem;
-  background-color: #350490;
-  border: 1px solid #350490;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    background-color: #fa75b0;
+    border: 1px solid #fa75b0;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
 }
 
 button:hover,
 .btn:hover {
-  background-color: #230161;
-  border-color: #230161;
+    background-color: #fdc7df;
+    border-color: #fdc7df;
 }
 
 #main-header {
-  width: 100%;
-  text-align: center;
-  padding: 2rem 0;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
 }
 
 #main-header h1 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 #main-logo {
-  font-size: 3rem;
-  font-family: "Roboto Slab", sans-serif;
-  text-decoration: none;
-  color: #350490;
-  font-weight: bold;
+    font-size: 3rem;
+    font-family: "IBM Plex Mono", monospace;
+    text-decoration: none;
+    color: #75FA7C;
+    text-shadow: 1px 1px 	#75b0fa;
+    font-weight: bold;
 }
