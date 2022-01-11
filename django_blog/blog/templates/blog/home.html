@@ -4,8 +4,15 @@
 {% block content %}
 
     <h1>Welcome to Raphaela's website.</h1>
+
+    <h3>Blog posts:</h3>
         {% for blog in blog_posts %}
         <p><a href="/blog/{{ blog.id }}/"> {{ blog.title }} </a></p>
+        {% endfor %}
+
+    <h3>Logged runs:</h3>
+        {% for run in run_logs %}
+        <p><a href="/run/{{ run.id }}/"> {{ run.title }} </a></p>
         {% endfor %}
 
         {% if user.is_authenticated %}

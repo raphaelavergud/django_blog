@@ -6,14 +6,18 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
-from .models import Blog
+from .models import Blog, Run
 from .forms import NewUserForm
 
 # Create your views here.
 
 def home(request):
     blog_posts = Blog.objects.all()
-    context = {"blog_posts": blog_posts}
+    run_logs = Run.objects.all()
+    context = {
+        "blog_posts": blog_posts,
+        "run_logs": run_logs
+        }
     return render(request, "blog/home.html", context)
     # blog_list_html = ''
     # for blog in blog_posts:
@@ -65,6 +69,11 @@ def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
 	return redirect("/")
+
+def run_log(request, id=1):
+    run = Run.objects.get(id=id)
+    context = {"run": run}
+    return render(request, "blog/run.html", context)
 
 # cross site request forgery protection exemption to allow this
 @csrf_exempt

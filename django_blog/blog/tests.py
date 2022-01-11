@@ -29,10 +29,10 @@ class SimpleTest(TestCase):
 # testing whether deleting the first post works
 # how do i retrieve the test case
 
-    # def test_delete_blog_post(self):
-    #     self.client.login(username="testuser", password="password")
-    #     response = self.client.delete(
-    #         "/admin/blog/blog/1/delete/",
-    #     )
-    #     self.assertEqual(response.status_code, 302)
-    #     response = self.client.get("/admin/blog/blog/4/change/")
+    def test_delete_blog_post(self):
+        self.client.login(username="testuser", password="password")
+        response = self.client.delete(
+            "/admin/blog/blog/1/delete/",
+        )
+        self.assertEqual(response.status_code, 302)
+        response = self.client.get("/admin/blog/blog/4/change/")

@@ -1,0 +1,16 @@
+{% extends "blog/structure.html" %}
+
+    <head>
+        <meta charset="UTF-8">
+        {% block pagetitle %}{{ run.title }}{% endblock %}
+    </head>
+{% block content %}
+    <body>
+        <h1>{{ run.title }}</h1>
+        <p>{{ run.date }}</p>
+        <p>Distance of this run: {{ run.distance }} km</p>
+        <p>{{ run.body }}</p>
+
+    </body>
+
+{% endblock content %}
