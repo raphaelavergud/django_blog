@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+import logging
 
 from .models import Blog, Run
 from .forms import NewUserForm
@@ -16,8 +17,10 @@ def home(request):
     run_logs = Run.objects.all()
     context = {
         "blog_posts": blog_posts,
-        "run_logs": run_logs
+        "run_logs": run_logs,
         }
+    logger = logging.getLogger("home")
+    logger.info("does the home view return")
     return render(request, "blog/home.html", context)
     # blog_list_html = ''
     # for blog in blog_posts:

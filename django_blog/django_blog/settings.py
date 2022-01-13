@@ -13,8 +13,29 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-# import os
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,11 +48,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-#)s89bg&=!ge!eb_wh+h_8+-*fj9*ay=)gfjf70r@g#@($f!h7"
 
+# security settings
+
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# this is for the deployed version + local
 ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com", "127.0.0.1"]
-# I made this specifically for the deployed version.
 
 
 # Application definition
@@ -49,7 +76,7 @@ INSTALLED_APPS = [
     # "gitpython.apps.config",
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
