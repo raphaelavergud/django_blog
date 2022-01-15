@@ -19,8 +19,6 @@ def home(request):
         "blog_posts": blog_posts,
         "run_logs": run_logs,
         }
-    logger = logging.getLogger("home")
-    logger.info("does the home view return")
     return render(request, "blog/home.html", context)
     # blog_list_html = ''
     # for blog in blog_posts:
