@@ -10,6 +10,9 @@ import logging
 from .models import Blog, Run
 from .forms import NewUserForm
 
+# module level logger:
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 
 def home(request):
@@ -34,7 +37,10 @@ def blog_post(request, id=1):
     return render(request, "blog/blog_post.html", context)
 
 def item(request, item_id):
+    if item_id == "hacker":
+        logger.warning("a hacker is trying to hack")
     return HttpResponse(f"Looking at {item_id}")
+
 
 def register_request(request):
 	if request.method == "POST":
@@ -60,9 +66,9 @@ def login_request(request):
 				messages.info(request, f"You are now logged in as {username}.")
 				return redirect("/")
 			else:
-				messages.error(request,"Invalid username or password.")
+				messages.error(request,"Invalid username or password."), logger.info("someone is entering invalid credentials")
 		else:
-			messages.error(request,"Invalid username or password.")
+			messages.error(request,"Invalid username or password."), logger.info("someone is entering invalid credentials")
 	form = AuthenticationForm()
 	return render(request=request, template_name="blog/login.html", context={"login_form":form})
 
