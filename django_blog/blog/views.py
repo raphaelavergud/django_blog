@@ -15,13 +15,14 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 
+
 def home(request):
     blog_posts = Blog.objects.all()
     run_logs = Run.objects.all()
     context = {
         "blog_posts": blog_posts,
         "run_logs": run_logs,
-        }
+    }
     return render(request, "blog/home.html", context)
     # blog_list_html = ''
     # for blog in blog_posts:
@@ -36,6 +37,7 @@ def blog_post(request, id=1):
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
 
+
 def item(request, item_id):
     if item_id == "hacker":
         logger.warning("a hacker is trying to hack")
@@ -43,44 +45,58 @@ def item(request, item_id):
 
 
 def register_request(request):
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("/")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm()
-	return render (request=request, template_name="blog/register.html", context={"register_form":form})
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            return redirect("/")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render(
+        request=request,
+        template_name="blog/register.html",
+        context={"register_form": form},
+    )
+
 
 def login_request(request):
-	if request.method == "POST":
-		form = AuthenticationForm(request, data=request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password=password)
-			if user is not None:
-				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("/")
-			else:
-				messages.error(request,"Invalid username or password."), logger.info("someone is entering invalid credentials")
-		else:
-			messages.error(request,"Invalid username or password."), logger.info("someone is entering invalid credentials")
-	form = AuthenticationForm()
-	return render(request=request, template_name="blog/login.html", context={"login_form":form})
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                return redirect("/")
+            else:
+                messages.error(request, "Invalid username or password."), logger.info(
+                    "someone is entering invalid credentials"
+                )
+        else:
+            messages.error(request, "Invalid username or password."), logger.info(
+                "someone is entering invalid credentials"
+            )
+    form = AuthenticationForm()
+    return render(
+        request=request, template_name="blog/login.html", context={"login_form": form}
+    )
+
 
 def logout_request(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.")
-	return redirect("/")
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect("/")
+
 
 def run_log(request, id=1):
     run = Run.objects.get(id=id)
     context = {"run": run}
     return render(request, "blog/run.html", context)
+
 
 # cross site request forgery protection exemption to allow this
 @csrf_exempt

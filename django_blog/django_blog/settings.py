@@ -147,6 +147,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = "/home/raphaelavergud/django-blog/django_blog/static"
 
+AUTH_USER_MODEL = "blog.NewUser"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
