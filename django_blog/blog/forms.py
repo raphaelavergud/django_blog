@@ -1,3 +1,4 @@
+from hashlib import sha256
 from django import forms
 
 # from django.contrib.auth import get_user_model
@@ -18,8 +19,8 @@ class NewUserForm(forms.ModelForm):
         fields = ["email", "username", "password", "first_name"]
 
     def save(self, commit=True):
-        user = super(NewUserForm, self).save(commit=False)
-        user.email = self.cleaned_data["email"]
+        user = super(NewUserForm, self).save()
+        user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
         return user

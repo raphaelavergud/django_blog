@@ -1,5 +1,6 @@
 from datetime import datetime
 import datetime
+from hashlib import sha256
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
@@ -33,7 +34,7 @@ class CustomAccountManager(BaseUserManager):
 
         email = self.normalize_email(email)
         user = self.model(email=email, username=username, first_name=first_name, **other_fields)
-        user.set_password(password)
+        user.set_password(sha256(password))
         user.save()
         return user
 
@@ -68,7 +69,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "first_name"]
+    REQUIRED_FIELDS = ["username", "first_name", "password"]
 
     def __str__(self):
         return self.username

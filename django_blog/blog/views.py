@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 import logging
 
-from .models import Blog, Run
+from .models import Blog, CustomAccountManager, Run
 from .forms import NewUserForm
 
 # module level logger:
@@ -63,7 +63,7 @@ def register_request(request):
 
 def login_request(request):
     if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
