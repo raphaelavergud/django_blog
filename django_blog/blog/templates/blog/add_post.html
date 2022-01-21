@@ -10,6 +10,7 @@
         {% load crispy_forms_tags %}
 
         <!--Add new blog post-->
+        <p>Hi {{user.username}}. Want to add a blog post?</p>
         <div class="container py-5">
             <form method="POST">
                 {% csrf_token %}
