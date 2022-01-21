@@ -1,0 +1,29 @@
+{% extends "blog/structure.html" %}
+
+{% block pagetitle %}Log a Run{% endblock %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <h1>log run:</h1>
+
+        {% load crispy_forms_tags %}
+
+        <!--log your run-->
+        <p>Hi {{user.username}}. Want to log your run?</p>
+        <div class="container py-5">
+            <form method="POST">
+                {% csrf_token %}
+                {{ addrun_form|crispy }}
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+
+    {% else %}
+
+        <p class="text-center">Looks like you're not authenticated. <a href="/login">Login</a> to log your run.</p>
+
+    {% endif %}
+
+
+{% endblock content %}

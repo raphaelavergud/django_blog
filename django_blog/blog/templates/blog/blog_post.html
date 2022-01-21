@@ -8,8 +8,9 @@
     <body>
         {% load markdownify %}
         <h1>{{ blog.title }}</h1>
-        <p>{{ blog.date }}</p>
+        <p>Author: {{ blog.author.username }}</p>
         <p>{{ blog.body|markdownify }}</p>
+        <p>Submitted on {{ blog.date }}</p>
         <br>
         <br>
         {% comment %} <p><a href="/blog/{ % {{ blog.id }} - 1% }/"> {{ Previous blog post }} </a></p>

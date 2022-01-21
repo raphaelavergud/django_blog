@@ -7,9 +7,10 @@
 {% block content %}
     <body>
         <h1>{{ run.title }}</h1>
-        <p>{{ run.date }}</p>
+        <p>Author: {{ run.author.username }}</p>
         <p>Distance of this run: {{ run.distance }} km</p>
         <p>{{ run.body }}</p>
+        <p>Submitted on {{ run.date }}</p>
 
     </body>
 

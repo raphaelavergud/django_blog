@@ -12,6 +12,12 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     date = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        "NewUser",
+        on_delete=models.SET_DEFAULT,
+        default=None,
+        to_field="id"
+    )
 
     def __str__(self):
         return self.title
@@ -21,6 +27,12 @@ class Run(models.Model):
     body = models.TextField()
     distance = models.IntegerField()
     date = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        "NewUser",
+        on_delete=models.SET_DEFAULT,
+        default=None,
+        to_field="id"
+    )
 
     def __str__(self):
         return self.title

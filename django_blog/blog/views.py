@@ -8,7 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 import logging
 
 from .models import Blog, CustomAccountManager, Run
-from .forms import NewUserForm, NewPostForm
+from .forms import NewUserForm, NewPostForm, NewRunForm
 
 # module level logger:
 logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ def blog_post(request, id=1):
 
 def add_post(request):
     if request.method == "POST":
-        form = NewPostForm(request.POST)
+        form = NewPostForm(request.POST, logged_in_user=request.user)
         if form.is_valid():
             post = form.save()
             messages.success(request, "Added new blog post successfully.")
@@ -110,6 +110,21 @@ def run_log(request, id=1):
     run = Run.objects.get(id=id)
     context = {"run": run}
     return render(request, "blog/run.html", context)
+
+def add_run(request):
+    if request.method == "POST":
+        form = NewRunForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            messages.success(request, "Logged run successfully.")
+            return redirect("/")
+        messages.error(request, "Unsuccessful. Could not log run.")
+    form = NewRunForm()
+    return render(
+        request=request,
+        template_name="blog/add_run.html",
+        context={"addrun_form": form},
+    )
 
 
 # cross site request forgery protection exemption to allow this
