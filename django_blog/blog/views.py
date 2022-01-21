@@ -8,13 +8,12 @@ from django.contrib.auth.forms import AuthenticationForm
 import logging
 
 from .models import Blog, CustomAccountManager, Run
-from .forms import NewUserForm
+from .forms import NewUserForm, NewPostForm
 
 # module level logger:
 logger = logging.getLogger(__name__)
 
 # Create your views here.
-
 
 def home(request):
     blog_posts = Blog.objects.all()
@@ -36,6 +35,21 @@ def blog_post(request, id=1):
     blog = Blog.objects.get(id=id)
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
+
+def add_post(request):
+    if request.method == "POST":
+        form = NewPostForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            messages.success(request, "Added new blog post successfully.")
+            return redirect("/")
+        messages.error(request, "Unsuccessful. Could not add new blog post.")
+    form = NewPostForm()
+    return render(
+        request=request,
+        template_name="blog/add_post.html",
+        context={"addpost_form": form},
+    )
 
 
 def item(request, item_id):

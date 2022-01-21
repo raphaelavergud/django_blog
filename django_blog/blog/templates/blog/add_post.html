@@ -1,0 +1,28 @@
+{% extends "blog/structure.html" %}
+
+{% block pagetitle %}Add Blog Post{% endblock %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <h1>Add New Blog Post:</h1>
+
+        {% load crispy_forms_tags %}
+
+        <!--Add new blog post-->
+        <div class="container py-5">
+            <form method="POST">
+                {% csrf_token %}
+                {{ addpost_form|crispy }}
+                <button class="btn btn-primary" type="submit">Add Post</button>
+            </form>
+        </div>
+
+    {% else %}
+
+        <p class="text-center">Looks like you're not authenticated. <a href="/login">Login</a> to add blog posts.</p>
+
+    {% endif %}
+
+
+{% endblock content %}

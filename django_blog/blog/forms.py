@@ -4,7 +4,7 @@ from django import forms
 # from django.contrib.auth import get_user_model
 # from django.contrib.auth.forms import UserCreationForm
 
-from .models import NewUser
+from .models import Blog, NewUser
 
 
 # Create your forms here.
@@ -24,6 +24,18 @@ class NewUserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class NewPostForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ["title", "body"]
+
+    def save(self, commit=True):
+        post = super(NewPostForm, self).save()
+        if commit:
+            post.save()
+        return post
 
 
 # class NewUserForm(UserCreationForm):
