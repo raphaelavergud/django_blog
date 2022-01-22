@@ -1,4 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap');
+
+/* -------colors:-------
+
+https://htmlcolorcodes.com/color-picker/
+
+-------analogous-------
+#f184bf
+#f18488
+#f1b684
+#f1ed84
+#bff184
+#88f184
+
+-------neutral-------
+#f184bf
+#f184a4
+#f18488
+#f19b84
+#f1b684
+#f1d184
+
+*/
 
 * {
     box-sizing: border-box;
@@ -10,13 +32,22 @@ hr {
 
 body {
     font-family: "IBM Plex Mono", monospace;
-    margin: 0;
-    background-color: #F1B684;
+    margin: 10;
+    background: radial-gradient(circle, rgba(241,155,132,1) 0%, rgba(241,132,136,1) 44%, rgba(241,132,164,1) 78%);
     color: #FA7D75;
 }
 
 p {
     font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+    padding: 8px;
+    background-color: #B0FA75;
+    color: #FA7D75;
+}
+
+p.author_and_date {
+    font-family: "IBM Plex Mono", monospace;
+    font-style: italic;
     margin: 0;
     padding: 8px;
     background-color: #B0FA75;
@@ -34,6 +65,7 @@ div {
 div.special {
     width: 500px;
     border-style: dashed;
+    background: radial-gradient(circle, rgba(191,241,132,1) 0%, rgba(137,241,132,1) 27%, rgba(132,241,209,1) 88%);
 }
 
 a {
