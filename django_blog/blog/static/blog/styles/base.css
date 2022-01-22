@@ -87,6 +87,12 @@ h3 {
     text-shadow: 2px 2px #ec56a7;
 }
 
+h2.special {
+    color: #DAF184;
+    text-shadow: #F18488;
+    text-indent: 10px;
+}
+
 button,
 .btn {
     cursor: pointer;
