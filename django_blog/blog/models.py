@@ -46,7 +46,7 @@ class CustomAccountManager(BaseUserManager):
 
         email = self.normalize_email(email)
         user = self.model(email=email, username=username, first_name=first_name, **other_fields)
-        user.set_password(sha256(password.encode('utf-8')).hexdigest())
+        user.set_password(password)
         user.save()
         return user
 
