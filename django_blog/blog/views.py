@@ -40,7 +40,7 @@ def add_post(request):
     if request.method == "POST":
         form = NewPostForm(request.POST, logged_in_user=request.user)
         if form.is_valid():
-            post = form.save()
+            form.save()
             messages.success(request, "Added new blog post successfully.")
             return redirect("/")
         messages.error(request, "Unsuccessful. Could not add new blog post.")
@@ -113,9 +113,9 @@ def run_log(request, id=1):
 
 def add_run(request):
     if request.method == "POST":
-        form = NewRunForm(request.POST)
+        form = NewRunForm(request.POST, logged_in_user=request.user)
         if form.is_valid():
-            post = form.save()
+            form.save()
             messages.success(request, "Logged run successfully.")
             return redirect("/")
         messages.error(request, "Unsuccessful. Could not log run.")
