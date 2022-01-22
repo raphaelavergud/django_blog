@@ -115,7 +115,7 @@ def add_run(request):
     if request.method == "POST":
         form = NewRunForm(request.POST)
         if form.is_valid():
-            run = form.save()
+            post = form.save()
             messages.success(request, "Logged run successfully.")
             return redirect("/")
         messages.error(request, "Unsuccessful. Could not log run.")
