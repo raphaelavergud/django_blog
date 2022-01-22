@@ -68,6 +68,10 @@ div.special {
     background: radial-gradient(circle, rgba(191,241,132,1) 0%, rgba(137,241,132,1) 27%, rgba(132,241,209,1) 88%);
 }
 
+label.requiredField {
+    color: #B0FA75;
+}
+
 a {
     color: inherit;
     font-style: italic;
@@ -88,9 +92,9 @@ button,
     cursor: pointer;
     font: inherit;
     padding: 0.5rem 1.5rem;
-    background-color: #fa75b0;
+    background-color: #F5CBA8;
     border: 1px solid #fa75b0;
-    color: white;
+    color: #F184BF;
     border-radius: 4px;
     text-decoration: none;
 }

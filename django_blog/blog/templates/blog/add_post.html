@@ -11,7 +11,7 @@
 
         <!--Add new blog post-->
         <p>Hi {{user.username}}. Want to add a blog post?</p>
-        <div class="container py-5">
+        <div class="container-py-5">
             <form method="POST">
                 {% csrf_token %}
                 {{ addpost_form|crispy }}
