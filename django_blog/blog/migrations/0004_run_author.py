@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='run',
             name='author',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.SET_DEFAULT, to='blog.newuser'),
+            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.SET_DEFAULT, to='blog.newuser'),
         ),
     ]
