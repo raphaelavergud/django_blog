@@ -77,6 +77,12 @@ a {
     font-style: italic;
 }
 
+a.nav-link-cat {
+    color: inherit;
+    font-style: italic;
+    background-color: #B0FA75;
+}
+
 
 h1,
 h2,
@@ -84,6 +90,13 @@ h3 {
     font-family: "IBM Plex Mono", monospace;
     color: #F184BF;
     background-color: #F5CBA8;
+    text-shadow: 2px 2px #ec56a7;
+}
+
+ol.special {
+    font-family: "IBM Plex Mono", monospace;
+    color: #F184BF;
+    background-color: royalblue;
     text-shadow: 2px 2px #ec56a7;
 }
 

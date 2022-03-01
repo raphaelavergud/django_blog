@@ -1,0 +1,17 @@
+{% extends "cats/structure.html" %}
+
+{% block pagetitle %}Cat Facts & More...{% endblock %}
+{% block content %}
+
+    <h1>Cat Facts & More...</h1>
+    <h2 class="special">are you here because you like cats?</h2>
+
+    <h3>Click on any cat fact for a surprise. {{ title }}</h3>
+    <ol class="special">
+        {% for fact in cat_facts %}
+
+    <li> <a href="/cats/{{fact.text}}?size=18&color=pink"> {{fact.text}}</a> </li>
+        {% endfor %}
+    </ol>
+
+{% endblock content %}

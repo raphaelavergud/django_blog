@@ -1,0 +1,38 @@
+<!--the structure-->
+
+{% load static %}
+
+<html>
+
+<head>
+
+    {% block head %}
+
+    <title>{% block pagetitle %}The Default Page Title{% endblock %} / Raphaela's website </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'blog/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/styles/navbar.css' %}">
+
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% include 'blog/nav.html' %}
+
+    {% block content %}
+    Sorry, this page is still under construction.
+    {% endblock %}
+
+    {% block javascript %}
+    {% endblock %}
+
+</body>
+
+</html>
+

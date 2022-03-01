@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "calculator",
+    "cats",
     "markdownify.apps.MarkdownifyConfig",
     "crispy_forms",
 ]
