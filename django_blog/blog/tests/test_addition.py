@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
-from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.test import TestCase
 
+# this is just a test file to help myself write tests
+# for whenever i forget how to do it
+# i don't know how to untrack it from pushing to git.
+# this is only for myself really.
 
 class AdditionTestCase(TestCase):
     def test_add(self):

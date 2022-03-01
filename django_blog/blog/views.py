@@ -129,11 +129,12 @@ def add_run(request):
 
 # cross site request forgery protection exemption to allow this
 @csrf_exempt
+# this is for the pythonanywhere webhook from github
 def update(request):
-    # this is for the pythonanywhere webhook from github
+
     if request.method == "POST":
         """
-        pass the path of the diectory where your project will be
+        pass the path of the diectory where my project will be
         stored on PythonAnywhere in the git.Repo() as parameter.
         Here the name of my directory is "django_blog/"
         """
