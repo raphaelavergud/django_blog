@@ -4,7 +4,6 @@ import requests
 
 # Create your views here.
 
-
 def CatView(request):
     base_url = "https://cat-fact.herokuapp.com"
     endpoint = "/facts/random?animal_type=cat&amount=5"
