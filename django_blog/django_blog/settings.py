@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "cats",
     "markdownify.apps.MarkdownifyConfig",
     "crispy_forms",
+    "rest_framework",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
