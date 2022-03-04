@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 
+
 def home(request):
     blog_posts = Blog.objects.all()
     run_logs = Run.objects.all()
@@ -35,6 +36,7 @@ def blog_post(request, id=1):
     blog = Blog.objects.get(id=id)
     context = {"blog": blog}
     return render(request, "blog/blog_post.html", context)
+
 
 def add_post(request):
     if request.method == "POST":
@@ -110,6 +112,7 @@ def run_log(request, id=1):
     run = Run.objects.get(id=id)
     context = {"run": run}
     return render(request, "blog/run.html", context)
+
 
 def add_run(request):
     if request.method == "POST":

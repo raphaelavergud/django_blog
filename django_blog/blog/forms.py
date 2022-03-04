@@ -28,7 +28,6 @@ class NewUserForm(forms.ModelForm):
 
 
 class NewPostForm(forms.ModelForm):
-
     class Meta:
         model = Blog
         fields = ["title", "body"]
@@ -46,7 +45,6 @@ class NewPostForm(forms.ModelForm):
 
 
 class NewRunForm(forms.ModelForm):
-
     class Meta:
         model = Run
         fields = ["title", "distance", "body"]

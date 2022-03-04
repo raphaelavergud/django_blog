@@ -4,5 +4,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+
 def startingpage(request):
     return HttpResponse("Hi and hello World!")

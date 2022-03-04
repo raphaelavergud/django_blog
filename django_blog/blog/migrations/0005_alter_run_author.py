@@ -8,13 +8,17 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0004_run_author'),
+        ("blog", "0004_run_author"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='run',
-            name='author',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.SET_DEFAULT, to=settings.AUTH_USER_MODEL),
+            model_name="run",
+            name="author",
+            field=models.ForeignKey(
+                default=None,
+                on_delete=django.db.models.deletion.SET_DEFAULT,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

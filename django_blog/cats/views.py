@@ -18,6 +18,7 @@ import time
 # defining my timer function,
 # from https://stackoverflow.com/questions/62522117/how-can-you-calculate-execution-time-of-a-view-in-django
 
+
 def timer(func):
     """helper function to estimate view execution time"""
 
@@ -31,11 +32,9 @@ def timer(func):
 
         duration = (time.time() - start) * 1000
         # output execution time to console
-        print('{}() takes {:.2f} ms to execute'.format(
-            func.__name__,
-            duration
-            ))
+        print("{}() takes {:.2f} ms to execute".format(func.__name__, duration))
         return result
+
     return wrapper
 
 

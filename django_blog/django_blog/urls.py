@@ -26,5 +26,5 @@ urlpatterns = [
     path("", include("blog.urls")),
     path("", include("calculator.urls")),
     path("", include("cats.urls")),
-    path("", include("api.urls"))
+    path("", include("api.urls")),
 ]

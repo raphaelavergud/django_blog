@@ -5,32 +5,32 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-class ViewBaseTest(TestCase):
 
+class ViewBaseTest(TestCase):
     def setUp(self):
-        self.register_url=reverse('register')
+        self.register_url = reverse("register")
 
         return super().setUp()
 
-class RegisterViewTest(ViewBaseTest):
 
+class RegisterViewTest(ViewBaseTest):
     def test_can_view_registerpage_correctly(self):
         response = self.client.get(self.register_url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'blog/register.html')
+        self.assertTemplateUsed(response, "blog/register.html")
+
 
 class ModelBaseTest(TestCase):
-
     def setUp(self):
         self.user = {
-            "username":"Raphiie",
-            "first_name":"Test",
-            "email":"test@test.com",
-            "password":"se"
+            "username": "Raphiie",
+            "first_name": "Test",
+            "email": "test@test.com",
+            "password": "se",
         }
 
-class RegisterModelTest(ModelBaseTest):
 
+class RegisterModelTest(ModelBaseTest):
     def test_value_error_when_email_is_none(self):
         with self.assertRaises(ValueError):
             self.user["email"] = None
@@ -53,7 +53,6 @@ class RegisterModelTest(ModelBaseTest):
 
 
 class RegisterSuperuserModelTest(ModelBaseTest):
-
     def test_value_error_when_email_is_none(self):
         with self.assertRaises(ValueError):
             self.user["email"] = None

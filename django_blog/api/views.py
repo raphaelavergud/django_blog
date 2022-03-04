@@ -6,12 +6,12 @@ from blog.models import Blog
 from .serializers import BlogSerializer
 
 
-
 @api_view(["GET"])
 def get_blogposts(request):
     blogs = Blog.objects.all()
     serializer = BlogSerializer(blogs, many=True)
     return Response(serializer.data)
+
 
 @api_view(["POST"])
 def add_blogposts(request):

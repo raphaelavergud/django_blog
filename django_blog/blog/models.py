@@ -1,4 +1,3 @@
-
 # from hashlib import sha256
 
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
@@ -11,19 +10,18 @@ import datetime
 
 # from django.contrib.auth.models import AbstractBaseUser, UserManager
 
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
-        "NewUser",
-        on_delete=models.SET_DEFAULT,
-        default=None,
-        to_field="id"
+        "NewUser", on_delete=models.SET_DEFAULT, default=None, to_field="id"
     )
 
     def __str__(self):
         return self.title
+
 
 class Run(models.Model):
     title = models.CharField(max_length=200)
@@ -31,24 +29,23 @@ class Run(models.Model):
     distance = models.IntegerField()
     date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
-        "NewUser",
-        on_delete=models.SET_DEFAULT,
-        default=None,
-        to_field="id"
+        "NewUser", on_delete=models.SET_DEFAULT, default=None, to_field="id"
     )
 
     def __str__(self):
         return self.title
 
-class CustomAccountManager(BaseUserManager):
 
+class CustomAccountManager(BaseUserManager):
     def create_user(self, email, username, first_name, password, **other_fields):
 
         if not email:
             raise ValueError("You must provide an email address.")
 
         email = self.normalize_email(email)
-        user = self.model(email=email, username=username, first_name=first_name, **other_fields)
+        user = self.model(
+            email=email, username=username, first_name=first_name, **other_fields
+        )
         user.set_password(password)
         user.save()
         return user
@@ -60,13 +57,9 @@ class CustomAccountManager(BaseUserManager):
         other_fields.setdefault("is_active", True)
 
         if other_fields.get("is_staff") is not True:
-            raise ValueError(
-                "Superuser must be assigned to is_staff=True."
-            )
+            raise ValueError("Superuser must be assigned to is_staff=True.")
         if other_fields.get("is_superuser") is not True:
-            raise ValueError(
-                "Superuser must be assigned to is_superuser=True."
-            )
+            raise ValueError("Superuser must be assigned to is_superuser=True.")
 
         return self.create_user(email, username, first_name, password, **other_fields)
 
@@ -88,8 +81,6 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
-
-
 
 
 # class User(AbstractBaseUser):
