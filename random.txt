@@ -1,0 +1,30 @@
+to find out execution time:
+
+from datetime import datetime
+start_time = datetime.now()
+# my code
+end_time = datetime.now()
+print('Duration: {}'.format(end_time - start_time))
+
+# defining my timer function,
+# from https://stackoverflow.com/questions/62522117/how-can-you-calculate-execution-time-of-a-view-in-django
+
+def timer(func):
+    """helper function to estimate view execution time"""
+
+    @wraps(func)  # used for copying func metadata
+    def wrapper(*args, **kwargs):
+        # record start time
+        start = time.time()
+
+        # func execution
+        result = func(*args, **kwargs)
+
+        duration = (time.time() - start) * 1000
+        # output execution time to console
+        print('{}() takes {:.2f} ms to execute'.format(
+            func.__name__,
+            duration
+            ))
+        return result
+    return wrapper
