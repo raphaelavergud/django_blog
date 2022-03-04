@@ -49,7 +49,6 @@ def CatView(request):
     return render(request, "cats/main.html", context)
 
 
-@timer
 def CatPic(request, cat_text):
     base_url = "https://cataas.com/cat"
     endpoint = f"/cute/says/{cat_text}?size=18&color=pink"

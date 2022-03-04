@@ -53,15 +53,21 @@ ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Local apps
     "blog",
     "calculator",
     "cats",
+    "api",
+
+    # Third-party apps
     "markdownify.apps.MarkdownifyConfig",
     "crispy_forms",
     "rest_framework",
