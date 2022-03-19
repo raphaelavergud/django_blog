@@ -124,7 +124,7 @@ DATABASES = {
         "PASSWORD": "password",
         "HOST": "localhost",
         "PORT": "5432",
-        "listen_addresses": "0.0.0.0",
+        # "listen_addresses": "0.0.0.0",
     }
 }
 
