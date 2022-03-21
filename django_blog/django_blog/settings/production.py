@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com"]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "djangodb",
+        "NAME": "raphiie",
         "USER": "raphiie",
         "PASSWORD": "password",
         "HOST": "*",
