@@ -1,12 +1,12 @@
 from .base import *
 
 DEBUG = True
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*", "3.127.243.35"]
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "raphiie",
+        "NAME": "djangodb", # or "raphiie"
         "USER": "raphiie",
         "PASSWORD": "password",
         "HOST": "localhost",
