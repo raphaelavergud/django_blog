@@ -3,6 +3,8 @@ from .base import *
 DEBUG = False
 ALLOWED_HOSTS = ["raphaelavergud.pythonanywhere.com", "*", "3.127.243.35", "raphaela.lundinfo.com"]
 
+STATIC_ROOT = "/home/ubuntu/static"
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
