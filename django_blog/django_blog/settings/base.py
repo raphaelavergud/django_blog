@@ -134,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "https://dcmswdy5vug3a.cloudfront.net/"
+STATIC_URL = "https://static.raphaela.lundinfo.com/"
 
 AUTH_USER_MODEL = "blog.NewUser"
 
