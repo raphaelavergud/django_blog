@@ -1,6 +1,44 @@
 from pathlib import Path
 import os
 
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = True
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "raphaelavergud.pythonanywhere.com", "3.127.243.35", "raphaela.lundinfo.com"]
+
+STATIC_ROOT = "/home/ubuntu/static"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("DATABASE_NAME"),
+        "USER": env("DATABASE_USER"),
+        "PASSWORD": env("DATABASE_PASS"),
+        "HOST": "localhost",
+        "PORT": "5432",
+        # "listen_addresses": "0.0.0.0",
+    }
+}
+
+# Email config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'email-smtp.eu-central-1.amazonaws.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+
+SECRET_KEY = env("SECRET_KEY")
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -15,8 +53,6 @@ LOGGING = {
     },
 }
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +65,6 @@ CSRF_TRUSTED_ORIGINS = ['https://raphaela.lundinfo.com']
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
-
 
 # Application definition
 
@@ -85,17 +120,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "django_blog.wsgi.application"
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
 
 
 # Password validation
