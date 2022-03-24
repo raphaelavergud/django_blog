@@ -18,12 +18,12 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": env("DATABASE_ENGINE"),
         "NAME": env("DATABASE_NAME"),
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASS"),
-        "HOST": "localhost",
-        "PORT": "5432",
+        "HOST": env("DATABASE_HOST"),
+        "PORT": env("DATABASE_PORT"),
         # "listen_addresses": "0.0.0.0",
     }
 }
